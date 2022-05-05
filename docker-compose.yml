@@ -14,6 +14,6 @@ services:
     volumes:
       - .docker/mysql/data:/var/lib/mysql
     expose:
-      - "13306"
+      - "3306"
     ports:
-      - "13306:3306"
+      - "3306:3306"
