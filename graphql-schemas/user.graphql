@@ -1,0 +1,16 @@
+type User {
+    "ID"
+    id: ID!
+    "ユーザー名"
+    name: String!
+}
+
+extend type Post {
+    "記事投稿者"
+    poster: User!
+}
+
+extend type Comment {
+    "コメント投稿者"
+    commenter: User!
+}

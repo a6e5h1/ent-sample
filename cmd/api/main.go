@@ -2,13 +2,16 @@ package main
 
 import (
 	"fmt"
+	"log"
+	"os"
+
+	"github.com/a6e5h1/ent-sample/pkg/core/registry"
+
 	"github.com/a6e5h1/ent-sample/cmd"
 	"github.com/a6e5h1/ent-sample/pkg/api/interfaces"
 	"github.com/urfave/cli/v2"
 	"go.uber.org/fx"
 	"go.uber.org/zap"
-	"log"
-	"os"
 )
 
 func main() {
@@ -26,6 +29,7 @@ func Exec(args []string) {
 			fx.Provide(
 				zap.NewDevelopment,
 				cmd.RDBFxConstructor(ctx),
+				registry.NewServices,
 				interfaces.NewHandler,
 			),
 			fx.Invoke(

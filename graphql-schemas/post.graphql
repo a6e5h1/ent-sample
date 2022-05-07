@@ -1,0 +1,15 @@
+type Post {
+    "ID"
+    id: ID!
+    "タイトル"
+    title: String!
+    "本文"
+    body: String!
+    "投稿日時"
+    postedAt: Datetime!
+}
+
+extend type Query {
+    "記事取得"
+    post(id: ID!): Post!
+}

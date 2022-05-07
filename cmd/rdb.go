@@ -2,13 +2,13 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/a6e5h1/ent-sample/ent"
 	"log"
+
+	"github.com/a6e5h1/ent-sample/ent"
 
 	"github.com/go-sql-driver/mysql"
 	"github.com/urfave/cli/v2"
 	"go.uber.org/zap"
-	"honnef.co/go/tools/config"
 )
 
 var RDBFlags = []cli.Flag{
@@ -44,8 +44,8 @@ var RDBFlags = []cli.Flag{
 	},
 }
 
-func RDBFxConstructor(ctx *cli.Context) func(*config.Config, *zap.Logger) *ent.Client {
-	return func(cfg *config.Config, logger *zap.Logger) *ent.Client {
+func RDBFxConstructor(ctx *cli.Context) func(*zap.Logger) *ent.Client {
+	return func(logger *zap.Logger) *ent.Client {
 		dsn := (&mysql.Config{
 			User:      ctx.String("db-user"),
 			Passwd:    ctx.String("db-password"),

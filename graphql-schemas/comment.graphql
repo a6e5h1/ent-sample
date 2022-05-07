@@ -1,0 +1,11 @@
+type Comment {
+    "ID"
+    id: ID!
+    "コメント内容"
+    content: String!
+}
+
+extend type Post {
+    "記事コメント"
+    comments: [Comment!]
+}
